@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import api from "../pinjaman/node_modules/@/api";
+import api from "@/api";
 
 export default {
   addAnggota({ commit }, { data, succes, fail } = {}) {
@@ -34,9 +34,9 @@ export default {
       })
       .catch(fail);
   },
-  getAnggota({ commit }, { success, fail } = {}) {
+  getAnggota({ commit }, { data, success, fail } = {}) {
     api.anggota
-      .get()
+      .get(data)
       .then(response => {
         success && success(response);
       })
