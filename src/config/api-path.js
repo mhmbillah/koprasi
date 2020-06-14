@@ -1,10 +1,8 @@
 export default {
   api: {
-    building: "/buildings",
-    floors: "/floors",
-    screen: "/screens",
-    category: "/categories",
-    places: "/places",
-    users: "/users"
+    anggota: "/api/anggota",
+    cicilan: "/api/cicilan",
+    pinjaman: "/api/pinjaman",
+    simpanan: "/api/simpanan"
   }
 };
