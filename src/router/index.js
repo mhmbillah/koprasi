@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 const Trial = () => import("@/views/Trial");
+const Simpanan = () => import("@/views/Simpanan");
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/trial",
     name: "Trial",
     component: Trial
+  },
+  {
+    path: "/simpanan",
+    name: "Simpanan",
+    component: Simpanan
   }
 ];
 
