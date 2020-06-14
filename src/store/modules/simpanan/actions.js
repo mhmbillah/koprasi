@@ -1,36 +1,36 @@
 /* eslint-disable no-unused-vars */
-import api from "../cicilan/node_modules/@/api";
+import api from "@/api";
 
 export default {
-  addSimpanan({ commit }, { data, succes, fail } = {}) {
+  addSimpanan({ commit }, { data, success, fail } = {}) {
     api.simpanan
       .add(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  editSimpanan({ commit }, { data, succes, fail } = {}) {
+  editSimpanan({ commit }, { data, success, fail } = {}) {
     api.simpanan
       .edit(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  deleteSimpanan({ commit }, { data, succes, fail } = {}) {
+  deleteSimpanan({ commit }, { data, success, fail } = {}) {
     api.simpanan
       .delete(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  getDetailSimpanan({ commit }, { data, succes, fail } = {}) {
+  getDetailSimpanan({ commit }, { data, success, fail } = {}) {
     api.simpanan
       .getDetail(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
