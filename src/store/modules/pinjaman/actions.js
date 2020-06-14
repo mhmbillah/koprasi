@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import api from "../simpanan/node_modules/@/api";
+import api from "@/api";
 
 export default {
   addPinjaman({ commit }, { data, succes, fail } = {}) {
