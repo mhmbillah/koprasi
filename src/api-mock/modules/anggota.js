@@ -74,6 +74,11 @@ export default [
           no: "1",
           name: "name",
           rw: "1"
+        },
+        {
+          no: "2",
+          name: "ega",
+          rw: "1"
         }
       ],
       pagination: {
