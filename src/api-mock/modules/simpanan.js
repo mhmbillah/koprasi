@@ -69,7 +69,19 @@ export default [
           },
           type: "POKOK",
           nominal: 0,
-          month: "Februari",
+          month: 1,
+          year: 2020
+        },
+        {
+          id: "2",
+          anggota: {
+            no: "2",
+            name: "ega",
+            rw: 3
+          },
+          type: "POKOK",
+          nominal: 0,
+          month: 2,
           year: 2020
         }
       ],
