@@ -14,7 +14,7 @@ export default {
   getDetail({ name }) {
     return api.getRequest(path.api.anggota + "/" + name);
   },
-  get() {
-    return api.getRequest(path.api.anggota);
+  get(data) {
+    return api.getRequest(path.api.anggota, data);
   }
 };
