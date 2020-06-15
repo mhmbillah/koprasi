@@ -15,7 +15,7 @@ export default [
   },
   {
     method: "PUT",
-    url: path.api.anggota + "/1",
+    url: path.api.anggota,
     code: 200,
     status: "OK",
     response: {
