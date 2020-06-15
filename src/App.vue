@@ -2,9 +2,7 @@
   <v-app id="keep">
     <v-app-bar app clipped-left color="#0095da">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <span class="title ml-3 mr-5"
-        >Google&nbsp;<span class="font-weight-light">Keep</span></span
-      >
+      <span class="title ml-3 mr-5">Koperasi Wanita </span>
       <v-text-field
         solo-inverted
         flat
@@ -66,11 +64,7 @@ export default {
       { icon: "cash-plus", text: "Simpanan", to: "/simpanan" },
       { icon: "cash-minus", text: "Pinjaman", to: "/pinjaman" },
       { icon: "cash-refund", text: "Cicilan", to: "/cicilan" },
-      { icon: "account-cash", text: "Anggota", to: "/anggota" },
-      { divider: true },
-      { heading: "Labels" },
-      { icon: "add", text: "Create new label" },
-      { divider: true }
+      { icon: "account-cash", text: "Anggota", to: "/anggota" }
     ]
   })
 };
