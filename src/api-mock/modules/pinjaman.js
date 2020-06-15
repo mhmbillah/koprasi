@@ -64,12 +64,12 @@ export default [
         {
           id: "1",
           anggota: {
-            no: "3",
-            name: "kuuhaku",
+            no: "2",
+            name: "ega",
             rw: 3
           },
           nominal: 30000,
-          month: "Februari",
+          month: 2,
           year: 2020,
           lunas: false,
           actual: 0,
@@ -81,6 +81,18 @@ export default [
         pageSize: 10,
         totalData: 20
       }
+    }
+  },
+  {
+    method: "PUT",
+    url: path.api.pinjaman,
+    code: 200,
+    status: "OK",
+    response: {
+      requestId: "32183217323823712973239231",
+      errorMessage: null,
+      errorCode: null,
+      success: true
     }
   }
 ];
