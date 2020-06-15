@@ -13,5 +13,8 @@ export default {
   },
   get() {
     return api.getRequest(path.api.pinjaman);
+  },
+  lunas(data) {
+    return api.putRequest(path.api.pinjaman, data);
   }
 };
