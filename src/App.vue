@@ -66,7 +66,7 @@ export default {
       { icon: "cash-plus", text: "Simpanan", to: "/simpanan" },
       { icon: "cash-minus", text: "Pinjaman", to: "/pinjaman" },
       { icon: "cash-refund", text: "Cicilan", to: "/cicilan" },
-      { icon: "account-cash", text: "Anggota", to: "/" },
+      { icon: "account-cash", text: "Anggota", to: "/anggota" },
       { divider: true },
       { heading: "Labels" },
       { icon: "add", text: "Create new label" },
