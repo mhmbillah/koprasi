@@ -2,35 +2,35 @@
 import api from "@/api";
 
 export default {
-  addAnggota({ commit }, { data, succes, fail } = {}) {
+  addAnggota({ commit }, { data, success, fail } = {}) {
     api.anggota
       .add(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  editAnggota({ commit }, { data, succes, fail } = {}) {
+  editAnggota({ commit }, { data, success, fail } = {}) {
     api.anggota
       .edit(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  deleteAnggota({ commit }, { data, succes, fail } = {}) {
+  deleteAnggota({ commit }, { data, success, fail } = {}) {
     api.anggota
       .delete(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  getDetailAnggota({ commit }, { data, succes, fail } = {}) {
+  getDetailAnggota({ commit }, { data, success, fail } = {}) {
     api.anggota
       .getDetail(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
