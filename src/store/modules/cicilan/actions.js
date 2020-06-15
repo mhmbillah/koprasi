@@ -2,35 +2,35 @@
 import api from "@/api";
 
 export default {
-  addCicilan({ commit }, { data, succes, fail } = {}) {
+  addCicilan({ commit }, { data, success, fail } = {}) {
     api.cicilan
       .add(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  editCicilan({ commit }, { data, succes, fail } = {}) {
+  editCicilan({ commit }, { data, success, fail } = {}) {
     api.cicilan
       .edit(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  deleteCicilan({ commit }, { data, succes, fail } = {}) {
+  deleteCicilan({ commit }, { data, success, fail } = {}) {
     api.cicilan
       .delete(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
-  getDetailCicilan({ commit }, { data, succes, fail } = {}) {
+  getDetailCicilan({ commit }, { data, success, fail } = {}) {
     api.cicilan
       .getDetail(data)
       .then(response => {
-        succes && succes(response);
+        success && success(response);
       })
       .catch(fail);
   },
