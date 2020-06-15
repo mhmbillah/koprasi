@@ -64,8 +64,8 @@ export default {
     drawer: null,
     items: [
       { icon: "cash-plus", text: "Simpanan", to: "/simpanan" },
-      { icon: "cash-minus", text: "Pinjaman", to: "/" },
-      { icon: "cash-refund", text: "Cicilan", to: "/" },
+      { icon: "cash-minus", text: "Pinjaman", to: "/pinjaman" },
+      { icon: "cash-refund", text: "Cicilan", to: "/cicilan" },
       { icon: "account-cash", text: "Anggota", to: "/" },
       { divider: true },
       { heading: "Labels" },
