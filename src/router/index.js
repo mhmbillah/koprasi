@@ -7,6 +7,7 @@ const Trial = () => import("@/views/Trial");
 const Simpanan = () => import("@/views/Simpanan");
 const Pinjaman = () => import("@/views/Pinjaman");
 const Cicilan = () => import("@/views/Cicilan");
+const Anggota = () => import("@/views/Anggota");
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/cicilan",
     name: "Cicilan",
     component: Cicilan
+  },
+  {
+    path: "/anggota",
+    name: "Anggota",
+    component: Anggota
   }
 ];
 
