@@ -32,7 +32,7 @@ export default [
         },
         pokok: 3000,
         jasa: 1500,
-        month: "Februari",
+        month: 1,
         year: 2020
       }
     }
@@ -63,13 +63,13 @@ export default [
         {
           id: "1",
           anggota: {
-            no: "3",
+            no: "1",
             name: "kuuhaku",
             rw: 3
           },
           pokok: 30000,
           jasa: 5000,
-          month: "Februari",
+          month: 1,
           year: 2020
         }
       ],
