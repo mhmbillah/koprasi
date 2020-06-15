@@ -5,11 +5,11 @@ export default {
   add(data) {
     return api.postRequest(path.api.anggota, data);
   },
-  edit({ id, data }) {
-    return api.putRequest(path.api.anggota + "/" + id, data);
+  edit(data) {
+    return api.putRequest(path.api.anggota, data);
   },
-  delete({ id }) {
-    return api.deleteRequest(path.api.anggota + "/" + id);
+  delete({ no }) {
+    return api.deleteRequest(path.api.anggota + "/" + no);
   },
   getDetail({ name }) {
     return api.getRequest(path.api.anggota + "/" + name);
