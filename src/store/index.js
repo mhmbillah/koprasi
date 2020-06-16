@@ -6,6 +6,7 @@ import anggota from "./modules/anggota";
 import cicilan from "./modules/cicilan";
 import pinjaman from "./modules/pinjaman";
 import simpanan from "./modules/simpanan";
+import kas from "./modules/kas";
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     anggota,
     cicilan,
     pinjaman,
-    simpanan
+    simpanan,
+    kas
   }
 });
