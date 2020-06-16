@@ -3,13 +3,13 @@
     <v-app-bar app clipped-left color="#0095da">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <span class="title ml-3 mr-5">Koperasi Wanita </span>
-      <v-text-field
+      <!-- <v-text-field
         solo-inverted
         flat
         hide-details
         label="Search"
         prepend-inner-icon="mdi-search"
-      ></v-text-field>
+      ></v-text-field> -->
 
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -64,7 +64,8 @@ export default {
       { icon: "cash-plus", text: "Simpanan", to: "/simpanan" },
       { icon: "cash-minus", text: "Pinjaman", to: "/pinjaman" },
       { icon: "cash-refund", text: "Cicilan", to: "/cicilan" },
-      { icon: "account-cash", text: "Anggota", to: "/anggota" }
+      { icon: "account-cash", text: "Anggota", to: "/anggota" },
+      { icon: "file-chart", text: "Laporan Kas", to: "/laporan" }
     ]
   })
 };
