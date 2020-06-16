@@ -8,6 +8,7 @@ const Simpanan = () => import("@/views/Simpanan");
 const Pinjaman = () => import("@/views/Pinjaman");
 const Cicilan = () => import("@/views/Cicilan");
 const Anggota = () => import("@/views/Anggota");
+const Kas = () => import("@/views/Kas");
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/anggota",
     name: "Anggota",
     component: Anggota
+  },
+  {
+    path: "/laporan",
+    name: "Laporan",
+    component: Kas
   }
 ];
 
