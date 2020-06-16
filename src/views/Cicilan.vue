@@ -90,8 +90,8 @@
         </v-card>
       </v-dialog>
       <ConfirmDialog
-        title="Menghapus Layar"
-        :message="`Apakah anda yakin menghapus layar  ?`"
+        title="Menghapus Cicilan"
+        :message="`Apakah anda yakin menghapus cicilan  ?`"
         :visible="visibleConfirmDialog"
         @cancel="
           visibleConfirmDialog = false;
