@@ -99,7 +99,10 @@
             ><span class="title">{{ formTitle }}</span></v-card-title
           >
           <v-card-text>
-            <v-text-field label="RW" v-model="editedItem.name"></v-text-field>
+            <v-text-field
+              label="Nama Transaksi"
+              v-model="editedItem.name"
+            ></v-text-field>
             <v-text-field
               label="Nominal (Rp)"
               v-model="editedItem.nominal"
@@ -316,7 +319,7 @@ export default {
       visibleMenu: false,
       headers: [
         {
-          text: "RW",
+          text: "Transaksi",
           align: "start",
           sortable: false,
           value: "name"
@@ -393,12 +396,13 @@ export default {
       });
     },
     handleSucces({ data }) {
+      let { content, pageMetaData } = data;
       this.isLoading = false;
-      this.items = data.content;
+      this.items = content;
       console.log(this.items);
 
-      this.page = data.pagination.page;
-      this.pageCount = data.pagination.totalData;
+      this.page = pageMetaData.pageNumber;
+      this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
       this.fetchTotalNominal();
     },
     handleFail(error) {
@@ -438,7 +442,7 @@ export default {
     },
     save() {
       if (!this.selectedItem) {
-        this.addkas({
+        this.addKas({
           data: this.editedItem,
           success: this.handleAddSucces,
           fail: this.handleAddFail
@@ -464,7 +468,7 @@ export default {
       this.visibleDialog = false;
     },
     handleEditSucces() {
-      this.fetchkasList();
+      this.fetchKasList();
       this.$toast.open({
         message: "success edit data",
         type: "success",
@@ -595,8 +599,14 @@ export default {
     yearQuery() {
       return this.$route.query.year || 2020;
     },
+    pageQuery() {
+      return this.$route.query.page || 1;
+    },
     formTitle() {
       return this.selectedItem ? "Edit Kas" : "Tambahkan Kas";
+    },
+    query() {
+      return this.$route.query;
     },
     valid() {
       return (
@@ -627,11 +637,16 @@ export default {
       if (!value) {
         this.selectedItem = null;
       }
+    },
+    query() {
+      this.fetchKasList();
+      this.page = parseInt(this.pageQuery);
     }
   },
   mounted() {
     this.filter.month = this.monthQuery;
     this.filter.year = this.yearQuery;
+    this.page = parseInt(this.pageQuery);
     this.page = parseInt(this.pageQuery);
     this.fetchKasList();
   }
