@@ -11,7 +11,7 @@ export default {
   delete({ id }) {
     return api.deleteRequest(path.api.cicilan + "/" + id);
   },
-  get() {
-    return api.getRequest(path.api.cicilan);
+  get(data) {
+    return api.getRequest(path.api.cicilan, data);
   }
 };
