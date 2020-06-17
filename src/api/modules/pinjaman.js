@@ -11,8 +11,11 @@ export default {
   delete({ id }) {
     return api.deleteRequest(path.api.pinjaman + "/" + id);
   },
-  get() {
-    return api.getRequest(path.api.pinjaman);
+  get(data) {
+    console.log("API");
+    console.log(data);
+
+    return api.getRequest(path.api.pinjaman, data);
   },
   lunas(data) {
     return api.putRequest(path.api.pinjaman, data);
