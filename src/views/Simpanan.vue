@@ -253,6 +253,8 @@ export default {
       this.visibleDialog = true;
     },
     fetchSimpananList() {
+      console.log("FETCH");
+      console.log(this.page);
       this.isLoading = true;
       this.getSimpanan({
         data: {
@@ -265,12 +267,17 @@ export default {
       });
     },
     handleSucces({ data }) {
+      console.log("SUCCESS");
+
+      console.log(data);
+
+      let { content, pageMetaData } = data;
       this.isLoading = false;
-      this.items = data.content;
+      this.items = content;
       console.log(this.items);
 
-      this.page = data.pagination.page;
-      this.pageCount = data.pagination.totalData;
+      this.page = pageMetaData.pageNumber;
+      this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
     },
     handleFail(error) {
       this.isLoading = false;
@@ -284,10 +291,8 @@ export default {
       this.isLoading = true;
       this.getAnggota({
         data: {
-          data: {
-            page: 1,
-            pageSize: 999
-          }
+          page: 1,
+          size: 999
         },
         success: this.handleAnggotaSucces,
         fail: this.handleFail
@@ -423,6 +428,9 @@ export default {
       return this.anggota.map(item => {
         return { text: item.name, value: item.no };
       });
+    },
+    query() {
+      return this.$route.query;
     }
   },
   watch: {
@@ -435,6 +443,10 @@ export default {
       if (!value) {
         this.selectedItem = null;
       }
+    },
+    query() {
+      this.page = parseInt(this.pageQuery);
+      this.fetchSimpananList();
     }
   },
   mounted() {
