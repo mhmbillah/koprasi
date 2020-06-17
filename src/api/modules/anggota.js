@@ -15,6 +15,6 @@ export default {
     return api.getRequest(path.api.anggota + "/" + name);
   },
   get(data) {
-    return api.getRequest(path.api.anggota, data);
+    return api.getRequest(path.api.anggota + "/search", data);
   }
 };
