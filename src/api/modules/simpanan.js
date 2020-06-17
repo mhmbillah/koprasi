@@ -11,9 +11,9 @@ export default {
   delete({ id }) {
     return api.deleteRequest(path.api.simpanan + "/" + id);
   },
-  get() {
+  get(data) {
     console.log("PANGGIL");
-    return api.getRequest(path.api.simpanan);
+    return api.getRequest(path.api.simpanan, data);
   },
   getDetail({ id }) {
     return api.getRequest(path.api.simpanan + "/" + id);
