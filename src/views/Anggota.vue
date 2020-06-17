@@ -16,7 +16,7 @@
                 >Tambahkan Anggota</v-btn
               >
               <v-spacer></v-spacer>
-              <!-- <v-text-field
+              <v-text-field
                 hide-details
                 append-icon="mdi-magnify"
                 single-line
@@ -25,7 +25,7 @@
                 clearable
                 @keyup.enter="search"
                 @click:clear="resetKeyword"
-              ></v-text-field> -->
+              ></v-text-field>
             </v-toolbar>
           </template>
           <template v-slot:item.actions="{ item }">
@@ -199,7 +199,8 @@ export default {
       this.getAnggota({
         data: {
           page: this.pageQuery,
-          size: this.itemsPerPage
+          size: this.itemsPerPage,
+          name: this.keyword
         },
         success: this.handleAnggotaSucces,
         fail: this.handleFail
