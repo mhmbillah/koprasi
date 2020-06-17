@@ -34,9 +34,9 @@ export default {
       })
       .catch(fail);
   },
-  getCicilan({ commit }, { success, fail } = {}) {
+  getCicilan({ commit }, { data, success, fail } = {}) {
     api.cicilan
-      .get()
+      .get(data)
       .then(response => {
         success && success(response);
       })
