@@ -55,20 +55,11 @@
             ><span class="title">{{ formTitle }}</span></v-card-title
           >
           <v-card-text>
-            <v-text-field
-              label="Nomor anggota"
+            <v-select
+              label="Anggota"
               v-model="editedItem.anggota.no"
-              type="number"
-            ></v-text-field>
-            <v-text-field
-              label="Nama anggota"
-              v-model="editedItem.anggota.name"
-            ></v-text-field>
-            <v-text-field
-              label="Rw"
-              v-model="editedItem.anggota.rw"
-              type="number"
-            ></v-text-field>
+              :items="anggotaSelection"
+            ></v-select>
             <v-text-field
               label="Nominal (Rp)"
               v-model="editedItem.nominal"
@@ -259,6 +250,7 @@ export default {
       "editPinjaman",
       "setLunas"
     ]),
+    ...mapActions("anggota", ["getAnggota"]),
     showAddDialog() {
       this.editedItem = Object.assign({}, this.default);
       this.visibleDialog = true;
@@ -283,6 +275,22 @@ export default {
         fail: this.handleFail
       });
     },
+    fetchAnggotaList() {
+      this.isLoading = true;
+      this.getAnggota({
+        data: {
+          page: 1,
+          size: 999
+        },
+        success: this.handleAnggotaSucces,
+        fail: this.handleFail
+      });
+    },
+    handleAnggotaSucces({ data }) {
+      this.isLoading = false;
+      this.anggota = data.content;
+      console.log(this.anggota);
+    },
     handleSucces({ data }) {
       console.log("SUCCESS");
       console.log(data);
@@ -302,6 +310,11 @@ export default {
       });
     },
     save() {
+      let selectedAnggota = this.anggota.filter(item => {
+        return item.no == this.editedItem.anggota.no;
+      });
+      this.editedItem.anggota = selectedAnggota[0];
+
       if (!this.selectedItem) {
         this.addPinjaman({
           data: this.editedItem,
@@ -450,8 +463,6 @@ export default {
     valid() {
       return (
         !!this.editedItem.anggota.no &&
-        !!this.editedItem.anggota.name &&
-        !!this.editedItem.anggota.rw &&
         !!this.editedItem.target &&
         !!this.editedItem.month &&
         !!this.editedItem.year &&
@@ -460,6 +471,11 @@ export default {
     },
     query() {
       return this.$route.query;
+    },
+    anggotaSelection() {
+      return this.anggota.map(item => {
+        return { text: item.name, value: item.no };
+      });
     }
   },
   watch: {
@@ -487,6 +503,7 @@ export default {
     this.searchKeyword = this.keyword;
     this.page = parseInt(this.pageQuery);
     this.fetchPinjamanList();
+    this.fetchAnggotaList();
   }
 };
 </script>
