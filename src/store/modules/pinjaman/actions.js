@@ -34,9 +34,9 @@ export default {
       })
       .catch(fail);
   },
-  getPinjaman({ commit }, { success, fail } = {}) {
+  getPinjaman({ commit }, { data, success, fail } = {}) {
     api.pinjaman
-      .get()
+      .get(data)
       .then(response => {
         success && success(response);
       })
