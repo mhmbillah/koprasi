@@ -8,7 +8,7 @@ import "vue-toast-notification/dist/theme-sugar.css";
 
 Vue.config.productionTip = false;
 
-require("@/api-mock");
+// require("@/api-mock");
 Vue.use(VueToast);
 
 new Vue({
