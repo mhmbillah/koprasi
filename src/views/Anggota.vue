@@ -16,7 +16,7 @@
                 >Tambahkan Anggota</v-btn
               >
               <v-spacer></v-spacer>
-              <v-text-field
+              <!-- <v-text-field
                 hide-details
                 append-icon="mdi-magnify"
                 single-line
@@ -25,7 +25,7 @@
                 clearable
                 @keyup.enter="search"
                 @click:clear="resetKeyword"
-              ></v-text-field>
+              ></v-text-field> -->
             </v-toolbar>
           </template>
           <template v-slot:item.actions="{ item }">
@@ -195,22 +195,27 @@ export default {
       this.visibleDialog = true;
     },
     fetchAnggotaList() {
+      console.log("FETCH");
+      console.log(this.pageQuery);
+
       this.isLoading = true;
       this.getAnggota({
         data: {
-          data: {
-            page: 1,
-            pageSize: 999
-          }
+          page: this.pageQuery,
+          size: this.itemsPerPage
         },
         success: this.handleAnggotaSucces,
         fail: this.handleFail
       });
     },
     handleAnggotaSucces({ data }) {
+      console.log(data);
+      let { content, pageMetaData } = data;
       this.isLoading = false;
-      this.items = data.content;
-      console.log(this.anggota);
+      this.items = content;
+      this.page = pageMetaData.pageNumber;
+      this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
+      console.log(this.pageCount);
     },
     save() {
       if (!this.selectedItem) {
@@ -315,6 +320,9 @@ export default {
     pageQuery() {
       return this.$route.query.page || 1;
     },
+    query() {
+      return this.$route.query;
+    },
     formTitle() {
       return this.selectedItem ? "Edit Anggota" : "Tambahkan Anggota";
     },
@@ -339,6 +347,10 @@ export default {
       if (!value) {
         this.selectedItem = null;
       }
+    },
+    query() {
+      this.page = parseInt(this.pageQuery);
+      this.fetchAnggotaList();
     }
   },
   mounted() {
