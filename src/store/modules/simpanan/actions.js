@@ -34,9 +34,9 @@ export default {
       })
       .catch(fail);
   },
-  getSimpanan({ commit }, { success, fail } = {}) {
+  getSimpanan({ commit }, { data, success, fail } = {}) {
     api.simpanan
-      .get()
+      .get(data)
       .then(response => {
         success && success(response);
       })
