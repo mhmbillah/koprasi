@@ -43,7 +43,6 @@ export default {
       .catch(fail);
   },
   setLunas({ commit }, { data, success, fail } = {}) {
-    console.log("ACTION");
     api.pinjaman
       .lunas(data)
       .then(response => {

@@ -399,8 +399,6 @@ export default {
       let { content, pageMetaData } = data;
       this.isLoading = false;
       this.items = content;
-      console.log(this.items);
-
       this.page = pageMetaData.pageNumber;
       this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
       this.fetchTotalNominal();

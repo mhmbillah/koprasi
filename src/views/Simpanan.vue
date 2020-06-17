@@ -253,8 +253,6 @@ export default {
       this.visibleDialog = true;
     },
     fetchSimpananList() {
-      console.log("FETCH");
-      console.log(this.page);
       this.isLoading = true;
       this.getSimpanan({
         data: {
@@ -267,14 +265,9 @@ export default {
       });
     },
     handleSucces({ data }) {
-      console.log("SUCCESS");
-
-      console.log(data);
-
       let { content, pageMetaData } = data;
       this.isLoading = false;
       this.items = content;
-      console.log(this.items);
 
       this.page = pageMetaData.pageNumber;
       this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
@@ -301,7 +294,6 @@ export default {
     handleAnggotaSucces({ data }) {
       this.isLoading = false;
       this.anggota = data.content;
-      console.log(this.anggota);
     },
     save() {
       if (!this.selectedItem) {
@@ -371,8 +363,6 @@ export default {
       });
     },
     handleDeleteSucces() {
-      console.log("success");
-
       this.fetchSimpananList();
       this.visibleConfirmDialog = false;
       this.$toast.open({

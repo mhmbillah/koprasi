@@ -195,9 +195,6 @@ export default {
       this.visibleDialog = true;
     },
     fetchAnggotaList() {
-      console.log("FETCH");
-      console.log(this.pageQuery);
-
       this.isLoading = true;
       this.getAnggota({
         data: {
@@ -209,13 +206,11 @@ export default {
       });
     },
     handleAnggotaSucces({ data }) {
-      console.log(data);
       let { content, pageMetaData } = data;
       this.isLoading = false;
       this.items = content;
       this.page = pageMetaData.pageNumber;
       this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
-      console.log(this.pageCount);
     },
     save() {
       if (!this.selectedItem) {
@@ -279,8 +274,6 @@ export default {
       });
     },
     handleDeleteSucces() {
-      console.log("success");
-
       this.fetchAnggotaList();
       this.visibleConfirmDialog = false;
       this.$toast.open({

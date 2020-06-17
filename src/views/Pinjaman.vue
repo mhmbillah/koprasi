@@ -261,9 +261,6 @@ export default {
       this.visibleDialog = true;
     },
     fetchPinjamanList() {
-      console.log("FETCH");
-      console.log(this.page);
-
       this.isLoading = true;
       this.getPinjaman({
         data: {
@@ -289,15 +286,11 @@ export default {
     handleAnggotaSucces({ data }) {
       this.isLoading = false;
       this.anggota = data.content;
-      console.log(this.anggota);
     },
     handleSucces({ data }) {
-      console.log("SUCCESS");
-      console.log(data);
       let { content, pageMetaData } = data;
       this.isLoading = false;
       this.items = content;
-      console.log(this.items);
       this.page = pageMetaData.pageNumber;
       this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
     },
@@ -379,7 +372,6 @@ export default {
       });
     },
     handleDeleteSucces() {
-      console.log("success");
       this.fetchPinjamanList();
       this.visibleConfirmDialog = false;
       this.$toast.open({
@@ -419,8 +411,6 @@ export default {
       let todayDate = new Date();
       let month = todayDate.getMonth() + 1;
       let year = todayDate.getFullYear();
-      console.log(this.selectedItem);
-      console.log(this.selectedItem.anggota.no);
 
       this.setLunas({
         data: {

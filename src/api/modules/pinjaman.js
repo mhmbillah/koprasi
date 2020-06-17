@@ -12,9 +12,6 @@ export default {
     return api.deleteRequest(path.api.pinjaman + "/" + id);
   },
   get(data) {
-    console.log("API");
-    console.log(data);
-
     return api.getRequest(path.api.pinjaman, data);
   },
   lunas(data) {
