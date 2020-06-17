@@ -232,12 +232,14 @@ export default {
       });
     },
     handleSucces({ data }) {
+      console.log("SUCCESS");
+      console.log(data);
+      let { content, pageMetaData } = data;
       this.isLoading = false;
-      this.items = data.content;
+      this.items = content;
       console.log(this.items);
-
-      this.page = data.pagination.page;
-      this.pageCount = data.pagination.totalData;
+      this.page = pageMetaData.pageNumber;
+      this.pageCount = Math.ceil(pageMetaData.totalRecords / this.itemsPerPage);
     },
     handleFail(error) {
       this.isLoading = false;
@@ -385,6 +387,9 @@ export default {
       return this.anggota.map(item => {
         return { text: item.name, value: item.no };
       });
+    },
+    query() {
+      return this.$route.query;
     }
   },
   watch: {
@@ -397,6 +402,10 @@ export default {
       if (!value) {
         this.selectedItem = null;
       }
+    },
+    query() {
+      this.page = parseInt(this.pageQuery);
+      this.fetchCicilanList();
     }
   },
   mounted() {
