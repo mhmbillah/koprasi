@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const mandatoryParams = {
-  channelId: "web",
-  clientId: "mallmap-ui"
+  channelId: "web"
+  // clientId: "mallmap-ui"
 };
 
 axios.interceptors.request.use(config => {
